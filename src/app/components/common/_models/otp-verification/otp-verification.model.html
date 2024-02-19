@@ -1,0 +1,42 @@
+<h2 mat-dialog-title>OTP Verification</h2>
+<mat-dialog-content id="otp-verification-model">
+	<p class="info">
+		<span>Enter OTP received on your registered</span>
+		<ng-container *ngIf="otpMethod && otpDestination">
+			<span class="otp-method">{{otpMethod}}</span>
+			<span class="otp-destination">{{otpDestination}}</span>
+		</ng-container>
+		<ng-container *ngIf="! (otpMethod && otpDestination)">
+			verification method
+		</ng-container>
+	</p>
+	<mat-form-field [style.width.%]="100">
+		<mat-label>OTP</mat-label>
+		<input matInput type="text" required maxLength="6" minlength="6" [formControl]="otp">
+	</mat-form-field>
+	<small class="hint">
+		<div>Might expire in 10 minutes</div>
+		<div>
+			<app-button-with-spinner matButtonType="mat-button" tabindex="3" (clickEvent)="onResendOtpClick()" [disabled]="isOtpResendCoolDown || showSpinner" [showSpinner]="showSpinner">
+				<span *ngIf="!isOtpResendCoolDown">Resend OTP</span>
+				<div *ngIf="isOtpResendCoolDown" class="resend-otp-btn-wait-content">
+					<div class="message">
+						<span>OTP Resent!</span>
+						<mat-icon>task_alt</mat-icon>
+					</div>
+					<div class="timer">
+						{{getSecondsToMinutes(otpResendCoolDownCount)}}
+					</div>
+				</div>
+			</app-button-with-spinner>
+		</div>
+	</small>
+</mat-dialog-content>
+<mat-dialog-actions style="justify-content: space-evenly;">
+	<button mat-button [mat-dialog-close]="false" (click)="onCancelClick()" tabindex="2" [disabled]="showSpinner">
+		Cancel
+	</button>
+	<app-button-with-spinner matButtonType="mat-raised-button" matColor="primary" tabindex="1" (clickEvent)="onSubmitClick()" [disabled]="!otp.valid || showSpinner" [showSpinner]="showSpinner">
+		Submit
+	</app-button-with-spinner>
+</mat-dialog-actions>

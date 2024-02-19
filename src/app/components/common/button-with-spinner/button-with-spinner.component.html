@@ -1,0 +1,21 @@
+<ng-container>
+	<button [color]="matColor" class="button-with-spinner" [disabled]="disabled" [class.loading]="showSpinner" (click)="handleClick($event)" *ngIf="matButtonType === 'mat-button'" mat-button>
+		<ng-container *ngTemplateOutlet="contentTemplate"></ng-container>
+	</button>
+	<button [color]="matColor" class="button-with-spinner" [disabled]="disabled" [class.loading]="showSpinner" (click)="handleClick($event)" *ngIf="matButtonType === 'mat-raised-button'" mat-raised-button>
+		<ng-container *ngTemplateOutlet="contentTemplate"></ng-container>
+	</button>
+	<button [color]="matColor" class="button-with-spinner" [disabled]="disabled" [class.loading]="showSpinner" (click)="handleClick($event)" *ngIf="matButtonType === 'mat-flat-button'" mat-flat-button>
+		<ng-container *ngTemplateOutlet="contentTemplate"></ng-container>
+	</button>
+	<button [color]="matColor" class="button-with-spinner" [disabled]="disabled" [class.loading]="showSpinner" (click)="handleClick($event)" *ngIf="matButtonType === 'mat-stroked-button'" mat-stroked-button>
+		<ng-container *ngTemplateOutlet="contentTemplate"></ng-container>
+	</button>
+</ng-container>
+
+<ng-template #contentTemplate>
+	<span class="text">
+		<ng-content></ng-content>
+	</span>
+	<mat-spinner class="spinner"></mat-spinner>
+</ng-template>

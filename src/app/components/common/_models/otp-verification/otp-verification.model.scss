@@ -1,0 +1,38 @@
+#otp-verification-model {
+	.info>*:not(:last-child) {
+		margin-right: 5px;
+	}
+
+	input {
+		text-align: center;
+		letter-spacing: 50px;
+	}
+
+	input.valid,
+	input:valid {
+		caret-color: transparent;
+		text-indent: 50px;
+		user-select: none;
+	}
+
+	.hint {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 15px;
+	}
+
+	.resend-otp-btn-wait-content {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+
+		.message {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			column-gap: 5px;
+		}
+	}
+}

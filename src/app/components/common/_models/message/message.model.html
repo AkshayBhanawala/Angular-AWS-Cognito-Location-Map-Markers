@@ -1,0 +1,18 @@
+<h2 *ngIf="data.isError" mat-dialog-title>Oops!</h2>
+<mat-dialog-content style="min-width: 300px;">
+	<ng-container *ngIf="data.isError && (showGenericErrorMessage || !(data?.message))">
+		<p>Something went wrong!!!</p>
+		<p>There might be more details about what went wrong in the console logs!</p>
+		<p>Send the developers a screen shot of your console logs which you can find in your browser's Developer tools.</p>
+		<p>My apologies for the inconvenience and thank you for your understanding.</p>
+	</ng-container>
+	<ng-container *ngIf="data?.message">
+		<details *ngIf="isMessageObject">
+			<pre style="font-family: monospace;">{{ data.message }}</pre>
+		</details>
+		<p *ngIf="!isMessageObject">{{ data.message }}</p>
+	</ng-container>
+</mat-dialog-content>
+<mat-dialog-actions style="justify-content: end;">
+	<button mat-button cdkFocusInitial [mat-dialog-close]="true">Okie</button>
+</mat-dialog-actions>

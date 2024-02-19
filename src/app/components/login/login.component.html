@@ -1,0 +1,34 @@
+<section id="login">
+	<form class="login-form" [formGroup]="loginForm" (ngSubmit)="onLoginFormSubmit()">
+		<mat-card class="card">
+			<mat-card-header>
+				<mat-card-title class="title">Login</mat-card-title>
+			</mat-card-header>
+			<mat-card-content class="content">
+				<mat-form-field>
+					<mat-label>Email</mat-label>
+					<input matInput type="email" formControlName="email">
+					<mat-error *ngIf="loginForm?.controls?.email?.invalid" class="input-error">
+						{{getFormFieldErrorMessage(loginForm.controls.email)}}
+					</mat-error>
+				</mat-form-field>
+				<mat-form-field>
+					<mat-label>Password</mat-label>
+					<input matInput type="password" formControlName="password">
+					<mat-error *ngIf="loginForm?.controls?.password?.invalid">
+						{{getFormFieldErrorMessage(loginForm.controls.password)}}
+					</mat-error>
+				</mat-form-field>
+				<mat-error style="text-align: center;">
+					{{getFormFieldErrorMessage(loginForm.controls.form)}}
+				</mat-error>
+			</mat-card-content>
+			<mat-card-actions class="actions">
+				<app-button-with-spinner matButtonType="mat-raised-button" matColor="primary" type="submit" [disabled]="!loginForm.valid || showSpinner" [showSpinner]="showSpinner">
+					Login
+				</app-button-with-spinner>
+				<a mat-button routerLink="/SignUp">Sign Up?</a>
+			</mat-card-actions>
+		</mat-card>
+	</form>
+</section>

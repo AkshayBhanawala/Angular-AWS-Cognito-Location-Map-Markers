@@ -1,0 +1,38 @@
+<section id="signup">
+	<form class="signup-form" [formGroup]="signupForm" (ngSubmit)="onSignUpFormSubmit()">
+		<mat-card class="card">
+			<mat-card-header>
+				<mat-card-title class="title">SignUp</mat-card-title>
+			</mat-card-header>
+			<mat-card-content class="content">
+				<mat-form-field>
+					<mat-label>Email</mat-label>
+					<input matInput type="email" formControlName="email">
+					<mat-error *ngIf="signupForm?.controls?.email?.invalid">
+						{{getFormFieldErrorMessage(signupForm.controls.email)}}
+					</mat-error>
+				</mat-form-field>
+				<mat-form-field>
+					<mat-label>Password</mat-label>
+					<input matInput type="password" formControlName="password">
+					<mat-error *ngIf="signupForm?.controls?.password?.invalid">
+						{{getFormFieldErrorMessage(signupForm.controls.password)}}
+					</mat-error>
+				</mat-form-field>
+				<mat-form-field>
+					<mat-label>Confirm Password</mat-label>
+					<input matInput type="password" formControlName="confirmPassword">
+					<mat-error *ngIf="signupForm?.controls?.confirmPassword?.invalid">
+						{{getFormFieldErrorMessage(signupForm.controls.confirmPassword)}}
+					</mat-error>
+				</mat-form-field>
+			</mat-card-content>
+			<mat-card-actions class="actions">
+				<app-button-with-spinner matButtonType="mat-raised-button" matColor="primary" type="submit" [disabled]="!signupForm.valid" [showSpinner]="showSpinner">
+					Sign Up
+				</app-button-with-spinner>
+				<a mat-button routerLink="/Login">Login?</a>
+			</mat-card-actions>
+		</mat-card>
+	</form>
+</section>

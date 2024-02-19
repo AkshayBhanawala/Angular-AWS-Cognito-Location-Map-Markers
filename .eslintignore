@@ -73,3 +73,6 @@ entrypoint.sh
 README.md
 sonar-project.properties
 VeracodeJenkinsFile
+
+# Local files
+*.local.*

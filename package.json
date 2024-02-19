@@ -1,5 +1,5 @@
 {
-	"name": "test",
+	"name": "angular_aws_cognito_map_markers",
 	"version": "0.0.0",
 	"scripts": {
 		"ng": "ng",
@@ -25,6 +25,7 @@
 		"@angular/platform-browser": "~16.2.12",
 		"@angular/platform-browser-dynamic": "~16.2.12",
 		"@angular/router": "~16.2.12",
+		"aws-amplify": "~6.0.16",
 		"rxjs": "~7.8.0",
 		"tslib": "~2.6.2",
 		"zone.js": "~0.13.0"
