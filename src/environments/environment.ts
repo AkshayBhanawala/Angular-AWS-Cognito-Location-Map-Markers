@@ -1,3 +1,4 @@
+import { MAP_STYLES } from "maplibre-gl-js-amplify/lib/esm/constants";
 import { Environment } from "./types";
 
 const _environment: Environment = {
@@ -19,8 +20,13 @@ const _environment: Environment = {
 		},
 		signInOptions: {
 			authFlowType: 'USER_PASSWORD_AUTH',
-		}
-	}
+		},
+		mapResource: {
+			mapName: 'YOUR MAP RESOURCE NAME GOES HERE',
+			mapStyle: MAP_STYLES.ESRI_NAVIGATION, // YOUR MAP STYLE GOES HERE
+			placeIndexName: 'YOUR PLACE INDEX NAME GOES HERE'
+		},
+	},
 };
 
 export const environment = Object.freeze(_environment);

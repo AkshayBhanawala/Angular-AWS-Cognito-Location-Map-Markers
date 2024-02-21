@@ -25,3 +25,44 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## AWS Map & PlaceIndex Access Policy Permissions
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "MapReadOnlyAccess",
+            "Effect": "Allow",
+            "Action": [
+                "geo:GetMapGlyphs",
+                "geo:GetMapSprites",
+                "geo:GetMapStyleDescriptor",
+                "geo:GetMapTile"
+            ],
+            "Resource": "arn:aws:geo:{AWS_REGION}:{AWS_ACCOUNT_ID}:map/{MAP_NAME}",
+            "Condition": {
+                "ForAnyValue:StringLike": {
+                    "aws:Referer": "http://localhost:4200/*"
+                }
+            }
+        },
+        {
+            "Sid": "PlaceIndexReadOnlyAccess",
+            "Effect": "Allow",
+            "Action": [
+                "geo:SearchPlaceIndexForText",
+                "geo:SearchPlaceIndexForSuggestions",
+                "geo:SearchPlaceIndexForPosition",
+                "geo:GetPlace"
+            ],
+            "Resource": "arn:aws:geo:{AWS_REGION}:{AWS_ACCOUNT_ID}:place-index/{PLACE_INDEX_NAME}",
+            "Condition": {
+                "ForAnyValue:StringLike": {
+                    "aws:Referer": "http://localhost:4200/*"
+                }
+            }
+        }
+    ]
+}
+```

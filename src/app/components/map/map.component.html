@@ -1,1 +1,12 @@
 <h1>MAP COMPONENT</h1>
+<div class="map-wrapper">
+	<div #map class="my-map"></div>
+</div>
+<div class="actions">
+	<button (click)="handleAddPredefinedLocationClick()" mat-stroked-button>
+		Add Predefined Location
+	</button>
+	<button (click)="removeAllMapMarkers()" mat-stroked-button>
+		Remove all Markers
+	</button>
+</div>

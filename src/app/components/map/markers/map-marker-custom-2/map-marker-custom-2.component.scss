@@ -1,0 +1,9 @@
+::ng-deep .maplibregl-marker[data-number] {
+	&.map-marker-custom-2:after {
+		height: 16px;
+		width: 16px;
+		top: 6px;
+		left: 8px;
+		font-size: 15px;
+	}
+}

@@ -6,10 +6,32 @@ import { MapComponent } from './components/map/map.component';
 import { getAuthGuard_Authenticated_CanActivateFn, getAuthGuard_UnAuthenticated_CanActivateFn } from './services/auth-guards.service';
 
 const routes: Routes = [
-	{ path: '', component: LoginComponent, canActivate: [getAuthGuard_UnAuthenticated_CanActivateFn()] },
-	{ path: 'Login', redirectTo: '' },
-	{ path: 'SignUp', component: SignUpComponent, canActivate: [getAuthGuard_UnAuthenticated_CanActivateFn()] },
-	{ path: 'Map', component: MapComponent, canActivate: [getAuthGuard_Authenticated_CanActivateFn()] },
+	{
+		path: '',
+		component: LoginComponent,
+		canActivate: [getAuthGuard_UnAuthenticated_CanActivateFn()]
+	},
+	{
+		path: 'Login',
+		redirectTo: ''
+	},
+	{
+		path: 'SignUp',
+		component: SignUpComponent,
+		canActivate: [getAuthGuard_UnAuthenticated_CanActivateFn()]
+	},
+	{
+		path: 'Map',
+		component: MapComponent,
+		canActivate: [getAuthGuard_Authenticated_CanActivateFn()],
+		data: {
+			inputAddresses: [
+				'787 Division Avenue, Westbury, NY 11590',
+				'688 Brooklyn Ave. Brooklyn, NY 11213',
+				'728 Patchogue Street, Patchogue, NY 11772',
+			]
+		}
+	},
 ];
 
 @NgModule({

@@ -1,4 +1,4 @@
-import { Injectable, inject } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Amplify } from 'aws-amplify';
 import { AuthSession } from '@aws-amplify/core/dist/esm/singleton/Auth/types';
 import { signIn, signUp, signOut, confirmSignUp, getCurrentUser, AuthUser, ConfirmSignUpOutput, SignUpOutput, resendSignUpCode, ResendSignUpCodeOutput, SignInOutput, fetchAuthSession } from 'aws-amplify/auth';
@@ -78,7 +78,7 @@ export class CognitoService {
 		return user;
 	}
 
-	public getUserSession(): Promise<AuthSession> {
+	public getAuthSession(): Promise<AuthSession> {
 		const session = fetchAuthSession();
 		session.then(() => {
 			localStorage.setItem(ls_key_is_user_logged_in, 'true');

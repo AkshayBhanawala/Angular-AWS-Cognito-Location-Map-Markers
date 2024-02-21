@@ -1,0 +1,51 @@
+:host ::ng-deep {
+	@import 'maplibre-gl/dist/maplibre-gl';
+	@import 'maplibre-gl-js-amplify/dist/public/amplify-map';
+
+	// For search control in the map
+	@import '@maplibre/maplibre-gl-geocoder/dist/maplibre-gl-geocoder';
+	@import 'maplibre-gl-js-amplify/dist/public/amplify-geocoder';
+
+	.maplibregl-marker {
+		&[data-number]:after {
+			position: absolute;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			content: attr(data-number);
+			background-color: white;
+			color: black;
+			font-family: 'Roboto';
+			font-weight: 600;
+			border-radius: 50%;
+			line-height: 0;
+
+			height: 16px;
+			width: 16px;
+			top: 5.5px;
+			left: 5.5px;
+			font-size: 16px;
+		}
+
+		svg path {
+			fill: #E74B3C;
+		}
+	}
+}
+
+.map-wrapper {
+	padding: 50px;
+	width: 100%;
+	height: 700px;
+
+	.my-map {
+		width: 100%;
+		height: 100%;
+	}
+}
+
+.actions {
+	display: flex;
+	justify-content: center;
+	gap: 20px;
+}

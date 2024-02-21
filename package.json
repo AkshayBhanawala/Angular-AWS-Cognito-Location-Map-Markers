@@ -1,6 +1,6 @@
 {
 	"name": "angular_aws_cognito_map_markers",
-	"version": "0.0.0",
+	"version": "0.0.1",
 	"scripts": {
 		"ng": "ng",
 		"start": "ng serve --hmr --disable-host-check --host 0.0.0.0",
@@ -25,7 +25,10 @@
 		"@angular/platform-browser": "~16.2.12",
 		"@angular/platform-browser-dynamic": "~16.2.12",
 		"@angular/router": "~16.2.12",
+		"@aws-amplify/geo": "~3.0.16",
 		"aws-amplify": "~6.0.16",
+		"maplibre-gl": "~2.4.0",
+		"maplibre-gl-js-amplify": "~4.0.0",
 		"rxjs": "~7.8.0",
 		"tslib": "~2.6.2",
 		"zone.js": "~0.13.0"
@@ -40,6 +43,7 @@
 		"@angular/cli": "~16.2.12",
 		"@angular/compiler-cli": "~16.2.12",
 		"@types/jasmine": "~4.3.0",
+		"@types/mapbox__mapbox-gl-draw": "~1.4.6",
 		"@types/node": "~20.11.17",
 		"@types/uuid": "~9.0.8",
 		"@typescript-eslint/eslint-plugin": "~5.62.0",
