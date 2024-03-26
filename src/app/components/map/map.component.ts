@@ -72,6 +72,7 @@ const MAP_CONFIG: MapConfig = {
 export class MapComponent implements OnInit, AfterViewInit, OnChanges {
 	@ViewChild('map') private mapContainer!: ElementRef<HTMLDivElement>;
 	inputAddresses: string[];
+	inputAddressesExists = false;
 	map: Map;
 	mapStyle: string;
 	mapInitialState: Partial<MapOptions> = {
@@ -125,7 +126,7 @@ export class MapComponent implements OnInit, AfterViewInit, OnChanges {
 		this.route.data.forEach((data) => {
 			if (data['inputAddresses']) {
 				this.inputAddresses = data['inputAddresses'];
-				this.ngOnChanges({});
+				this.inputAddressesExists = true;
 			}
 		})
 		this.configureAmplify();
@@ -252,6 +253,12 @@ export class MapComponent implements OnInit, AfterViewInit, OnChanges {
 				interactive: this.mapInitialState.interactive,
 				attributionControl: false,
 				// transformRequest: await getMapRequestTransformerForAuth(),
+			});
+			this.map.on('load', (event) => {
+				console.log('MapLoadEvent:', event);
+				if (this.inputAddressesExists) {
+					this.ngOnChanges({});
+				}
 			});
 			this.addMapControls();
 			this.onClickAddMarker();

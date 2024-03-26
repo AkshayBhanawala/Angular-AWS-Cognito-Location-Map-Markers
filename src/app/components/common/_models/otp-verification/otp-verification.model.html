@@ -15,7 +15,7 @@
 		<input matInput type="text" required maxLength="6" minlength="6" [formControl]="otp">
 	</mat-form-field>
 	<small class="hint">
-		<div>Might expire in 10 minutes</div>
+		<div>Will expire in 24 hours</div>
 		<div>
 			<app-button-with-spinner matButtonType="mat-button" tabindex="3" (clickEvent)="onResendOtpClick()" [disabled]="isOtpResendCoolDown || showSpinner" [showSpinner]="showSpinner">
 				<span *ngIf="!isOtpResendCoolDown">Resend OTP</span>
